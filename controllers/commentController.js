@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function getComments(postid) {
@@ -36,4 +36,9 @@ async function addComment(content, commentorname, postid) {
     return 0
 }
 
-export { getComments, deleteComment, addComment };
+module.exports = {
+    getComments,
+    deleteComment,
+    addComment
+  };
+  

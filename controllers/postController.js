@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function getPosts() {
@@ -48,4 +48,10 @@ async function addPost(title, content) {
     return 0;
 }
 
-export { getPosts, deletePost, addPost, updatePost };
+module.exports = {
+    getPosts,
+    deletePost,
+    addPost,
+    updatePost
+  };
+  

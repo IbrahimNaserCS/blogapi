@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function addUser(username, password, isauthor) {
@@ -16,4 +16,8 @@ async function getUsers() {
     return users;
 }
 
-export { addUser, getUsers }
+module.exports = {
+    addUser,
+    getUsers
+  };
+  
