@@ -17,7 +17,13 @@ postRouter.delete("/:postid", verifyToken, async (req, res) => {
 
 postRouter.post("/", verifyToken, async (req, res) => {
     jwt.verify(req.token, process.env.SECRET_KEY, (err, authData) => {
-        if(err) { res.sendStatus(403) };
+        if(err) {
+            res.sendStatus(403);
+        } else {
+            res.json({
+                authData
+            })
+        }
     })
     const result = await addPost(req.body.title, req.body.content);
     if (result == 0) {
