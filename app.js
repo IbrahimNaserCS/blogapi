@@ -56,7 +56,7 @@ passport.deserializeUser(async (username, done) => {
 app.use(express.json());
 app.use("/comment", commentRoutes);
 app.use("/post", postRoutes);
-app.use("/user", userRoutes);
+// app.use("/user", userRoutes);
 
 app.post("/login", passport.authenticate('local', {session: false} ), (req, res) => {
     jwt.sign({ user: req.user }, process.env.SECRET_KEY, (err, token) => {
