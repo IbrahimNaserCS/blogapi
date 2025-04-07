@@ -9,6 +9,8 @@ const bcrypt = require("bcryptjs");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
+app.use(cors());
 app.use(express.json())
 require("dotenv").config();
 app.use(passport.initialize());
