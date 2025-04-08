@@ -61,6 +61,8 @@ app.use("/post", postRoutes);
 // app.use("/user", userRoutes);
 
 app.post("/login", passport.authenticate('local', {session: false} ), (req, res) => {
+  console.log("tried to login");
+  console.log(req.user);
     jwt.sign({ user: req.user }, process.env.SECRET_KEY, (err, token) => {
         res.json({ token });
     });
@@ -87,6 +89,11 @@ app.get("/allusers", async (req, res) => {
 })
 
 // app.post("/login", (req, res) => {});
+
+app.delete("/allusers", async (req, res) => {
+  await prisma.user.deleteMany();
+  res.send("Deleted all");
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(8080, () => {

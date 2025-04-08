@@ -48,10 +48,20 @@ async function addPost(title, content) {
     return 0;
 }
 
+async function getSpecificPost(inid) {
+    const post = await prisma.post.findFirst({
+        where: {
+            id: parseInt(inid)
+        }
+    });
+    return post;
+}
+
 module.exports = {
     getPosts,
     deletePost,
     addPost,
-    updatePost
+    updatePost,
+    getSpecificPost
   };
   
