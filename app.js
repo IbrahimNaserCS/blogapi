@@ -83,18 +83,19 @@ app.post("/sign-up", async (req, res, next) => {
     }
   });
 
+  /*
 app.get("/allusers", async (req, res) => {
     const users = await prisma.user.findMany({});
     res.send(users);
 })
-
+*/
 // app.post("/login", (req, res) => {});
-
+/*
 app.delete("/allusers", async (req, res) => {
   await prisma.user.deleteMany();
   res.send("Deleted all");
 })
-
+*/
 const PORT = process.env.PORT || 5000;
 app.listen(8080, () => {
   console.log(`Server running on port ${8080}`);
